@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14232b">
+<title>Mis vales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fondo animado (lo elige script.js) -->
+<div class="particulas" id="particulas" aria-hidden="true"></div>
+
+<main class="vales">
+  <a href="index.html" class="volver">&larr; Volver</a>
+
+  <header class="musica-cab">
+    <h1>Mis vales</h1>
+    <p class="sub">respóndeme bien y los ganas</p>
+  </header>
+
+  <!-- Vista 1: elegir desafío + colección -->
+  <section class="vista" id="vista-niveles">
+    <div class="niveles" id="niveles"></div>
+
+    <h2 class="vales-subtitulo">Mi colección</h2>
+    <p class="nota" id="vales-contador"></p>
+    <ul class="vales-lista" id="vales-lista"></ul>
+  </section>
+
+  <!-- Vista 2: el quiz -->
+  <section class="vista" id="vista-quiz" hidden>
+    <p class="quiz-nivel" id="quiz-nivel"></p>
+    <div class="quiz-barra"><span id="quiz-progreso"></span></div>
+    <p class="quiz-contador" id="quiz-contador"></p>
+    <h2 class="quiz-pregunta" id="quiz-pregunta"></h2>
+    <div class="quiz-opciones" id="quiz-opciones"></div>
+    <p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p>
+    <button type="button" class="boton" id="quiz-siguiente" hidden>Siguiente</button>
+  </section>
+
+  <!-- Vista 3: resultado -->
+  <section class="vista" id="vista-resultado" hidden>
+    <p class="res-emoji" id="res-emoji"></p>
+    <h2 class="res-titulo" id="res-titulo"></h2>
+    <p class="res-texto" id="res-texto"></p>
+    <div id="res-vale"></div>
+    <div class="res-botones">
+      <button type="button" class="boton" id="res-reintentar" hidden>Intentar de nuevo</button>
+      <button type="button" class="boton" id="res-volver">Ver mis vales</button>
+    </div>
+  </section>
+</main>
+
+<!-- Corazones -->
+<div class="corazones" id="corazones" aria-hidden="true"></div>
+
+<script src="vales.js" defer></script>
+<script src="script.js" defer></script>
+<script src="vales-vista.js" defer></script>
+</body>
+</html>

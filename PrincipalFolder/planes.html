@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14232b">
+<title>Nuestros planes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fondo animado (lo elige script.js) -->
+<div class="particulas" id="particulas" aria-hidden="true"></div>
+
+<main class="planes">
+  <a href="index.html" class="volver">&larr; Volver</a>
+
+  <header class="musica-cab">
+    <h1>Nuestros planes</h1>
+    <p class="sub">todo lo que quiero vivir contigo</p>
+  </header>
+
+  <article class="plan cambiando" id="plan" aria-live="polite">
+    <figure class="plan-foto" id="plan-foto"></figure>
+    <h2 class="plan-titulo" id="plan-titulo"></h2>
+    <p class="plan-desc" id="plan-desc"></p>
+  </article>
+
+  <button type="button" class="boton" id="otro-plan">Otro plan</button>
+  <p class="nota" id="plan-progreso"></p>
+</main>
+
+<!-- Corazones (para el plan de la boda) -->
+<div class="corazones" id="corazones" aria-hidden="true"></div>
+
+<script src="planes.js" defer></script>
+<script src="script.js" defer></script>
+<script src="planes-vista.js" defer></script>
+</body>
+</html>

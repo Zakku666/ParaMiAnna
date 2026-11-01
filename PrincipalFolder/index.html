@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14232b">
+<title>Para ti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<input type="checkbox" id="abrir" hidden>
+
+<!-- Pantalla de inicio: el toque aquí también servirá para iniciar la música (script.js) -->
+<label for="abrir" class="intro" id="intro">
+  <span class="intro-luz"></span>
+  <span class="intro-texto">Hay algo<br>para ti</span>
+  <span class="intro-toque">toca para abrir</span>
+</label>
+
+<!-- Fondo animado (el tema lo elige script.js) -->
+<div class="particulas" id="particulas" aria-hidden="true"></div>
+
+<main>
+
+  <!-- Portada -->
+  <section class="portada">
+    <div class="astro" aria-hidden="true"></div>
+    <h1>Para ti,<br>con cariño</h1>
+    <p class="sub">hice esto con mis manitos</p>
+    <span class="bajar" aria-hidden="true">&#8964;</span>
+  </section>
+
+  <!-- Contador (script.js lo hace correr) -->
+  <section class="contador">
+    <h2>Llevamos juntos aprox</h2>
+    <div class="tiempo-chico">
+      <div><b id="anios">0</b><small>años</small></div>
+      <div><b id="meses">0</b><small>meses</small></div>
+    </div>
+    <div class="tiempo">
+      <div><b id="dias">00</b><small>días</small></div>
+      <div><b id="horas">00</b><small>horas</small></div>
+      <div><b id="min">00</b><small>min</small></div>
+      <div><b id="seg">00</b><small>seg</small></div>
+    </div>
+    <p class="nota">y los que faltan</p>
+  </section>
+
+  <!-- Totales -->
+  <section class="totales">
+    <p class="total-intro">o, dicho de otra forma…</p>
+    <div class="total">
+      <b id="total-dias">0</b>
+      <small>días en total</small>
+    </div>
+    <div class="total">
+      <b id="total-seg">0</b>
+      <small>segundos en total</small>
+    </div>
+  </section>
+
+  <!-- Carta -->
+  <section class="carta-sec">
+    <div class="sobre-wrap" id="sobre-wrap">
+      <button type="button" class="sobre-carta" id="btn-carta" aria-expanded="false" aria-controls="carta">
+        <span class="sobre-solapa"></span>
+        <span class="sobre-sello">&#10084;</span>
+        <span class="sobre-etiqueta">Carta</span>
+      </button>
+    </div>
+
+    <article class="carta" id="carta" hidden>
+      <p class="saludo">Mi amor:</p>
+      <p>Quería regalarte algo que no se pudiera abrir en un papel y guardar en un cajón. Algo que pudieras llevar en tu bolsillo y abrir cuando quisieras.</p>
+      <p>Gracias por cada risa, por cada conversación que se alarga hasta tarde y por hacer que los días normales se sientan como una película de verano.</p>
+      <p>Si algún día te sientes pequeñita, vuelve aquí. Todo esto es tuyo.</p>
+      <p class="firma">Con todo mi cariño,<br>Zac</p>
+    </article>
+  </section>
+
+  <!-- Galería de recuerdos -->
+  <section class="galeria">
+    <h2>Cosas que me recuerdan a ti</h2>
+    <div class="polaroids">
+      <figure class="polaroid" style="--r:-4deg">
+        <div class="foto f1"><span>&#127807;</span></div>
+        <figcaption>Tu lugar favorito del mundo</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:3deg">
+        <div class="foto f2"><span>&#127769;</span></div>
+        <figcaption>Nuestras noches de juegos</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:-2deg">
+        <div class="foto f3"><span>&#127811;</span></div>
+        <figcaption>Tu sonrisa, siempre</figcaption>
+      </figure>
+    </div>
+    <p class="nota">(aquí irán tus fotos de verdad)</p>
+  </section>
+
+    <!-- Razones -->
+  <section class="razones">
+    <h2>Razones por las que te quiero</h2>
+    <div class="razon-caja" id="razon-caja">
+      <div class="razon-contenido">
+        <span class="razon-num" id="razon-num"></span>
+        <p id="razon">Tengo muchas razones. Toca el botón para descubrirlas.</p>
+      </div>
+    </div>
+    <button type="button" class="boton" id="otra-razon">Descubrir una razón</button>
+    <p class="nota" id="razon-progreso"></p>
+  </section>
+
+  <!-- Ábreme cuando -->
+    <!-- Ábreme cuando -->
+  <section class="abre">
+    <h2>Ábreme cuando…</h2>
+    <div class="sobres" id="sobres"></div>
+  </section>
+
+    <!-- Música -->
+  <section class="musica-link">
+    <h2>Nuestra música</h2>
+    <p class="nota">canciones que me hacen pensar en ti</p>
+    <a class="boton" href="musica.html">Escuchar</a>
+  </section>
+
+    <!-- Planes -->
+  <section class="planes-link">
+    <h2>Nuestros planes</h2>
+    <p class="nota">todo lo que quiero vivir contigo</p>
+    <a class="boton" href="planes.html">Descubrir</a>
+  </section>
+
+    <!-- Vales -->
+  <section class="vales-link">
+    <h2>Mis vales</h2>
+    <p class="nota">respóndeme bien y los ganas</p>
+    <a class="boton" href="vales.html">Jugar</a>
+  </section>
+
+    <!-- Pregunta final -->
+  <section class="final" id="final">
+    <h2>Una última pregunta</h2>
+    <p class="pregunta">¿Quieres seguir siendo mi novia?</p>
+
+    <div class="respuestas" id="respuestas">
+      <button type="button" class="boton si" id="si">Sí</button>
+      <button type="button" class="boton no" id="no">No</button>
+    </div>
+    <p class="respuesta-final" id="respuesta-final" aria-live="polite"></p>
+
+    <div class="mensaje-si" id="mensaje-si" hidden>
+      <p class="mensaje-si-titulo">Sabía que dirías que sí</p>
+      <p class="mensaje-si-texto">Llevamos <b id="dias-final">0</b> días juntos, y quiero que sean muchos, muchos más.</p>
+      <p class="mensaje-si-texto">Gracias por elegirme hoy y por quedarte conmigo cada día. Te quiero muchísimo, mi amor.</p>
+      <p class="mensaje-si-firma">Siempre tuyo,<br>Zac</p>
+    </div>
+  </section>
+
+    <footer>
+    hecho para ti <span id="corazon-secreto" class="corazon-secreto">&#10084;</span>
+    <p class="pista" id="pista"></p>
+    <p class="footer-extra" id="footer-extra"></p>
+  </footer>
+
+</main>
+
+<!-- Tarjeta flotante de "Ábreme cuando" -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-fondo" id="modal-fondo"></div>
+  <article class="modal-carta" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <h3 class="modal-titulo" id="modal-titulo"></h3>
+    <p class="modal-texto" id="modal-texto"></p>
+    <button type="button" class="boton modal-cerrar" id="modal-cerrar">Cerrar</button>
+  </article>
+</div>
+<div class="corazones" id="corazones" aria-hidden="true"></div>
+
+
+<script src="razones.js" defer></script>
+<script src="sobres.js" defer></script>
+<script src="cartas.js" defer></script>
+<script src="script.js" defer></script>
+<script src="secretos.js" defer></script>
+
+</body>
+</html>

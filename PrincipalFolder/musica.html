@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14232b">
+<title>Nuestra música</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fondo animado (lo elige script.js, igual que en la página principal) -->
+<div class="particulas" id="particulas" aria-hidden="true"></div>
+
+<main class="musica">
+  <a href="index.html" class="volver">&larr; Volver</a>
+
+  <header class="musica-cab">
+    <h1>Nuestra música</h1>
+    <p class="sub">canciones que me hacen pensar en ti</p>
+  </header>
+
+  <ul class="lista" id="lista"></ul>
+</main>
+
+<!-- Reproductor fijo abajo -->
+<div class="reproductor" id="reproductor" hidden>
+  <div class="rep-info">
+    <p class="rep-titulo" id="rep-titulo"></p>
+    <p class="rep-artista" id="rep-artista"></p>
+  </div>
+
+  <input type="range" class="rep-barra" id="rep-barra" min="0" max="1000" value="0" step="1" aria-label="Posición de la canción">
+  <div class="rep-tiempos">
+    <span id="rep-actual">0:00</span>
+    <span id="rep-total">0:00</span>
+  </div>
+
+  <div class="rep-controles">
+    <button type="button" class="rep-btn" id="rep-prev" aria-label="Canción anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M6 6h2v12H6zM9.5 12L18 6v12z"/></svg>
+    </button>
+    <button type="button" class="rep-btn" id="rep-atras" aria-label="Retroceder 10 segundos">&minus;10</button>
+    <button type="button" class="rep-btn rep-play" id="rep-play" aria-label="Reproducir"></button>
+    <button type="button" class="rep-btn" id="rep-adelante" aria-label="Adelantar 10 segundos">+10</button>
+    <button type="button" class="rep-btn" id="rep-next" aria-label="Canción siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M16 6h2v12h-2zM6 18V6l8.5 6z"/></svg>
+    </button>
+  </div>
+</div>
+
+<audio id="audio" preload="none"></audio>
+
+<script src="canciones.js" defer></script>
+<script src="script.js" defer></script>
+<script src="musica.js" defer></script>
+</body>
+</html>
