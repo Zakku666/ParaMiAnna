@@ -12,7 +12,7 @@ function poner(id, valor) {
 /* ===== CONTADOR ===== */
 // Cambia por el día exacto: new Date(año, mes - 1, día, hora, minuto)
 // En JavaScript los meses empiezan en 0 (enero = 0, septiembre = 8).
-const INICIO = new Date(2020, 8, 1, 0, 0, 0);
+const INICIO = new Date(2020, 7, 11, 0, 0, 0);
 
 function diferencia(desde, hasta) {
   let anios = hasta.getFullYear() - desde.getFullYear();

@@ -6,11 +6,30 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#14232b">
 <title>Para ti</title>
+
+<!-- Vista previa al compartir el link (WhatsApp, etc.) -->
+<meta name="description" content="Hay algo esperándote.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Para ti">
+<meta property="og:title" content="Para ti 💗">
+<meta property="og:description" content="Hay algo esperándote. Ábrelo con calma.">
+<meta property="og:url" content="https://zakku666.github.io/ParaMiAnna/">
+<meta property="og:image" content="https://zakku666.github.io/ParaMiAnna/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Una luz cálida con el texto: Hay algo para ti">
+
+<!-- Ícono de la pestaña -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E💗%3C/text%3E%3C/svg%3E">
+
+<!-- Fuentes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -19,8 +38,8 @@
 <!-- Pantalla de inicio: el toque aquí también servirá para iniciar la música (script.js) -->
 <label for="abrir" class="intro" id="intro">
   <span class="intro-luz"></span>
-  <span class="intro-texto">Hay algo<br>para ti</span>
-  <span class="intro-toque">toca para abrir</span>
+  <span class="intro-texto">Uy... parece que hay algo<br>para ti</span>
+  <span class="intro-toque">toca para abrir mi amorcito</span>
 </label>
 
 <!-- Fondo animado (el tema lo elige script.js) -->
@@ -31,14 +50,14 @@
   <!-- Portada -->
   <section class="portada">
     <div class="astro" aria-hidden="true"></div>
-    <h1>Para ti,<br>con cariño</h1>
-    <p class="sub">hice esto con mis manitos</p>
+    <h1>Para ti mi Bibi,<br>con cariño y amor</h1>
+    <p class="sub">Hecho unica y exclusivamente para vo</p>
     <span class="bajar" aria-hidden="true">&#8964;</span>
   </section>
 
   <!-- Contador (script.js lo hace correr) -->
   <section class="contador">
-    <h2>Llevamos juntos aprox</h2>
+    <h2>Llevamos juntos</h2>
     <div class="tiempo-chico">
       <div><b id="anios">0</b><small>años</small></div>
       <div><b id="meses">0</b><small>meses</small></div>
@@ -49,7 +68,7 @@
       <div><b id="min">00</b><small>min</small></div>
       <div><b id="seg">00</b><small>seg</small></div>
     </div>
-    <p class="nota">y los que faltan</p>
+    <p class="nota">y los que faltan jsjs</p>
   </section>
 
   <!-- Totales -->
@@ -84,33 +103,38 @@
     </article>
   </section>
 
-  <!-- Galería de recuerdos -->
+    <!-- Galería de recuerdos -->
   <section class="galeria">
     <h2>Cosas que me recuerdan a ti</h2>
     <div class="polaroids">
       <figure class="polaroid" style="--r:-4deg">
-        <div class="foto f1"><span>&#127807;</span></div>
-        <figcaption>Tu lugar favorito del mundo</figcaption>
+        <div class="foto f1">
+          <img src="./fotos/Galaxia.jpeg" alt="Galaxia" loading="eager">
+        </div>
+        <figcaption>Lo que veo cuando miro tus hermosos ojos</figcaption>
       </figure>
       <figure class="polaroid" style="--r:3deg">
-        <div class="foto f2"><span>&#127769;</span></div>
-        <figcaption>Nuestras noches de juegos</figcaption>
+        <div class="foto f2">
+          <img src="fotos/Mariposa.jpeg" alt="Mariposa" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <figcaption>Para mi tu eres esta hermosura</figcaption>
       </figure>
       <figure class="polaroid" style="--r:-2deg">
-        <div class="foto f3"><span>&#127811;</span></div>
-        <figcaption>Tu sonrisa, siempre</figcaption>
+        <div class="foto f3">
+          <img src="fotos/Nina.jpeg" alt="Niña" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <figcaption>Un momento... Que haces aqui perra gei?</figcaption>
       </figure>
     </div>
-    <p class="nota">(aquí irán tus fotos de verdad)</p>
   </section>
 
-    <!-- Razones -->
+  <!-- Razones -->
   <section class="razones">
     <h2>Razones por las que te quiero</h2>
     <div class="razon-caja" id="razon-caja">
       <div class="razon-contenido">
         <span class="razon-num" id="razon-num"></span>
-        <p id="razon">Tengo muchas razones. Toca el botón para descubrirlas.</p>
+        <p id="razon">Tengo muchas razones mi amor, quieres saber algunas?</p>
       </div>
     </div>
     <button type="button" class="boton" id="otra-razon">Descubrir una razón</button>
@@ -118,37 +142,36 @@
   </section>
 
   <!-- Ábreme cuando -->
-    <!-- Ábreme cuando -->
   <section class="abre">
     <h2>Ábreme cuando…</h2>
     <div class="sobres" id="sobres"></div>
   </section>
 
-    <!-- Música -->
+  <!-- Música -->
   <section class="musica-link">
     <h2>Nuestra música</h2>
-    <p class="nota">canciones que me hacen pensar en ti</p>
+    <p class="nota">canciones que me hacen pensar en ti mi gordi</p>
     <a class="boton" href="musica.html">Escuchar</a>
   </section>
 
-    <!-- Planes -->
+  <!-- Planes -->
   <section class="planes-link">
     <h2>Nuestros planes</h2>
-    <p class="nota">todo lo que quiero vivir contigo</p>
+    <p class="nota">todo lo que quiero vivir contigo mi amor</p>
     <a class="boton" href="planes.html">Descubrir</a>
   </section>
 
-    <!-- Vales -->
-  <section class="vales-link">
-    <h2>Mis vales</h2>
-    <p class="nota">respóndeme bien y los ganas</p>
+  <!-- Vales -->
+  <!--<section class="vales-link">
+    <h2>Juguemos PlayQuiz!</h2>
+    <p class="nota">respóndeme bien y gana cositas bb</p>
     <a class="boton" href="vales.html">Jugar</a>
-  </section>
+  </section>-->
 
-    <!-- Pregunta final -->
+  <!-- Pregunta final -->
   <section class="final" id="final">
-    <h2>Una última pregunta</h2>
-    <p class="pregunta">¿Quieres seguir siendo mi novia?</p>
+    <h2>Una última pregunta...</h2>
+    <p class="pregunta">Quieres seguir siendo mi novia?</p>
 
     <div class="respuestas" id="respuestas">
       <button type="button" class="boton si" id="si">Sí</button>
@@ -158,13 +181,23 @@
 
     <div class="mensaje-si" id="mensaje-si" hidden>
       <p class="mensaje-si-titulo">Sabía que dirías que sí</p>
-      <p class="mensaje-si-texto">Llevamos <b id="dias-final">0</b> días juntos, y quiero que sean muchos, muchos más.</p>
-      <p class="mensaje-si-texto">Gracias por elegirme hoy y por quedarte conmigo cada día. Te quiero muchísimo, mi amor.</p>
-      <p class="mensaje-si-firma">Siempre tuyo,<br>Zac</p>
+      <p class="mensaje-si-texto">Llevamos <b id="dias-final">0</b> días juntos, y quiero que sean muchos, muchos más jijiji hasta morir de viejos >:D</p>
+      <p class="mensaje-si-texto">Gracias por elegirme hoy y por quedarte conmigo cada día. Te amo muchísimo, mi amor.</p>
+      <p class="mensaje-si-firma">Siempre tuyo,<br>Adrián</p>
     </div>
   </section>
 
-    <footer>
+  <!-- Planes de hoy (se desbloquean al encontrar los 5 secretos) -->
+  <section class="planes-hoy" id="planes-hoy" hidden>
+    <h2>Premio por encontrarlos todos los secretos</h2>
+    <p class="nota">cada día hay un plan nuevo para ti mi amor</p>
+    <div class="planes-hoy-botones">
+      <a class="boton romantico" href="plan-hoy.html?tipo=romantico">Plan romántico de hoy 💌</a>
+      <a class="boton hot" href="plan-hoy.html?tipo=hot">Plan hot de hoy 🔥</a>
+    </div>
+  </section>
+
+  <footer>
     hecho para ti <span id="corazon-secreto" class="corazon-secreto">&#10084;</span>
     <p class="pista" id="pista"></p>
     <p class="footer-extra" id="footer-extra"></p>
@@ -181,14 +214,18 @@
     <button type="button" class="boton modal-cerrar" id="modal-cerrar">Cerrar</button>
   </article>
 </div>
+
+<!-- Corazones (pregunta final, secretos y banners) -->
 <div class="corazones" id="corazones" aria-hidden="true"></div>
 
-
+<!-- Scripts: cada uno una sola vez y en este orden -->
 <script src="razones.js" defer></script>
 <script src="sobres.js" defer></script>
 <script src="cartas.js" defer></script>
+<script src="avisos.js" defer></script>
 <script src="script.js" defer></script>
 <script src="secretos.js" defer></script>
+<script src="cumple.js" defer></script>
 
 </body>
 </html>

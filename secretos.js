@@ -1,4 +1,6 @@
 (() => {
+  const VERSION = 'v5';
+
   /* ======================================================================
      CONFIGURACIÓN: aquí editas todos los textos
      ====================================================================== */
@@ -23,28 +25,28 @@
   const SECRETOS = {
     sol: {
       titulo: "Me encontraste",
-      texto: "Tocaste el sol cinco veces, así que ya sé que eres curiosa. Esa curiosidad es una de las cosas que más me gustan de ti."
+      texto: "Tocaste el sol cinco veces, así que ya sé que eres curiosa eh, esa curiosidad es una de las cosas que más me gustan de ti."
     },
     corazon: {
       titulo: "Un secreto más",
-      texto: "Mantuviste presionado mi corazón, y así de firme es lo que siento por ti."
+      texto: "Mantuviste presionado mi corazón, y así de firme es lo que siento por ti una y un millon de veces"
     },
     luciernaga: {
       titulo: "Atrapaste una estrella",
-      texto: "Dicen que si atrapas una luz dorada puedes pedir un deseo. Pídelo, y yo hago todo lo posible por cumplirlo."
+      texto: "Dicen que si atrapas una luz dorada puedes pedir un deseo mi amor, pídelo, y yo hago todo lo posible por cumplirlo"
     },
     polaroids: {
       emoji: "💌",
-      imagen: "fotos/secreto.jpg",       // opcional: una foto especial (si no existe, usa el emoji)
-      pie: "Esta no estaba en la lista",
-      aviso: "Apareció una polaroid secreta ✨"
+      imagen: "fotos/Nosotros.jpeg",       // opcional: una foto especial (si no existe, usa el emoji)
+      pie: "Esta no estaba en la lista, jsjsjs algun dia seremos estos mi amor",
+      aviso: "Apareció una imagen secreta ✨"
     },
     fondo: {
-      texto: "Llegaste hasta el final y no te fuiste. Eso también me gusta de ti."
+      texto: "Llegaste hasta el final y no te fuiste... Eso me encanta de ti"
     },
     final: {
       titulo: "Los encontraste todos",
-      texto: "Eres igual de buena encontrando secretos que quedándote con mi corazón."
+      texto: "Eres igual de buena encontrando secretos que quedándote con mi corazónbb jsjs como premio, al final de la página se desbloquearon dos botones 💌🔥"
     }
   };
 
@@ -58,6 +60,8 @@
   const BUSQUEDAS = ['sol', 'corazon', 'polaroids', 'luciernaga', 'fondo'];
   const TOTAL = BUSQUEDAS.length;
   const CLAVE = 'secretos-encontrados';
+
+  console.log('secretos.js', VERSION);
 
   let encontrados = [];
   try {
@@ -83,6 +87,7 @@
   /* ---------- Ventana y aviso ---------- */
   let ventana = null;
   let timerVentana = null;
+  let scrollPendiente = false;
 
   function asegurarVentana() {
     if (ventana) return;
@@ -121,6 +126,15 @@
     ventana.classList.remove('visible');
     document.body.classList.remove('modal-abierto');
     timerVentana = setTimeout(() => { ventana.hidden = true; }, reducido ? 0 : 350);
+
+    // Si acaba de desbloquear los planes, baja sola hasta los botones
+    if (scrollPendiente) {
+      scrollPendiente = false;
+      setTimeout(() => {
+        const s = q('planes-hoy');
+        if (s) s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 450);
+    }
   }
 
   let avisoEl = null;
@@ -137,6 +151,42 @@
     requestAnimationFrame(() => avisoEl.classList.add('visible'));
     clearTimeout(timerAviso);
     timerAviso = setTimeout(() => avisoEl.classList.remove('visible'), 3600);
+  }
+
+  /* ---------- Planes de hoy (se desbloquean con los 5 secretos) ---------- */
+  // Si la sección no está en el HTML, se crea aquí mismo
+  function asegurarSeccionPlanes() {
+    let sec = q('planes-hoy');
+    if (sec) return sec;
+
+    const main = document.querySelector('main');
+    if (!main) return null;
+
+    sec = document.createElement('section');
+    sec.className = 'planes-hoy';
+    sec.id = 'planes-hoy';
+    sec.hidden = true;
+    sec.innerHTML =
+      '<h2>Premio por encontrarlos todos</h2>' +
+      '<p class="nota">cada día hay un plan nuevo para ti</p>' +
+      '<div class="planes-hoy-botones">' +
+        '<a class="boton romantico" href="plan-hoy.html?tipo=romantico">Plan romántico de hoy 💌</a>' +
+        '<a class="boton hot" href="plan-hoy.html?tipo=hot">Plan hot de hoy 🔥</a>' +
+      '</div>';
+
+    const pie = main.querySelector('footer');
+    main.insertBefore(sec, pie || null);
+    return sec;
+  }
+
+  function desbloquearPlanes(nuevo) {
+    const sec = asegurarSeccionPlanes();
+    if (!sec) return;
+    sec.hidden = false;
+    if (nuevo) {
+      sec.classList.add('nueva');
+      scrollPendiente = true;
+    }
   }
 
   /* ---------- Registro de secretos encontrados ---------- */
@@ -167,7 +217,14 @@
         }), 2200);
       }
     }
-    if (r.completo && typeof lluviaCorazones === 'function') lluviaCorazones();
+
+    if (r.completo) {
+      desbloquearPlanes(true);
+      if (typeof lluviaCorazones === 'function') lluviaCorazones();
+      if (typeof avisarZac === 'function') {
+        avisarZac('🎉 Encontró los 5 secretos y desbloqueó los planes de hoy', 'secretos-completos');
+      }
+    }
   }
 
   /* ---------- 6. Saludo según la hora ---------- */
@@ -435,6 +492,66 @@
     obs.observe(pie);
   }
 
+  /* ---------- Modo de prueba: abre la página con ?debug al final del link ---------- */
+  const NOMBRES = {
+    sol: 'Sol (5 toques)',
+    corazon: 'Corazón (mantener presionado)',
+    polaroids: 'Polaroids (orden secreto)',
+    luciernaga: 'Luz dorada',
+    fondo: 'Final de la página'
+  };
+
+  function iniciarDebug() {
+    if (!new URLSearchParams(location.search).has('debug')) return;
+
+    const panel = document.createElement('div');
+    panel.className = 'secretos-debug';
+
+    const titulo = document.createElement('p');
+    titulo.className = 'debug-titulo';
+    panel.appendChild(titulo);
+
+    const lineas = {};
+    BUSQUEDAS.forEach(id => {
+      const p = document.createElement('p');
+      lineas[id] = p;
+      panel.appendChild(p);
+    });
+
+    const estado = document.createElement('p');
+    estado.className = 'debug-estado';
+    panel.appendChild(estado);
+
+    const boton = (texto, accion) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = texto;
+      b.addEventListener('click', accion);
+      panel.appendChild(b);
+    };
+    boton('Marcar todos y recargar', () => { encontrados = BUSQUEDAS.slice(); guardar(); location.reload(); });
+    boton('Reiniciar y recargar', () => { encontrados = []; guardar(); location.reload(); });
+    boton('Mostrar los botones ahora', () => {
+      desbloquearPlanes(false);
+      const s = q('planes-hoy');
+      if (s) s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    const pintar = () => {
+      titulo.textContent = 'Secretos ' + VERSION + ': ' + encontrados.length + ' de ' + TOTAL;
+      BUSQUEDAS.forEach(id => {
+        lineas[id].textContent = (encontrados.includes(id) ? '✅ ' : '⬜ ') + NOMBRES[id];
+      });
+      const sec = q('planes-hoy');
+      const visible = !!sec && !sec.hidden && getComputedStyle(sec).display !== 'none';
+      estado.textContent = 'Botones: ' + (sec ? (visible ? 'visibles ✅' : 'ocultos') : 'no existen') +
+        ' · avisos.js: ' + (typeof avisarZac === 'function' ? 'sí' : 'no');
+    };
+    pintar();
+    setInterval(pintar, 1000);
+    document.body.appendChild(panel);
+  }
+
   /* ---------- Inicio ---------- */
   saludoHora();
   iniciarBanner();
@@ -444,4 +561,6 @@
   iniciarPolaroids();
   iniciarDorada();
   iniciarPie();
+  iniciarDebug();
+  if (encontrados.length >= TOTAL) desbloquearPlanes(false);
 })();
